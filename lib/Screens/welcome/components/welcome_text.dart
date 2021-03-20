@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:travel_app/Screens/home/home.dart';
 import 'package:travel_app/Screens/welcome/components/welcome_button.dart';
 import 'package:travel_app/constants.dart';
+import 'package:travel_app/responsive.dart';
 
 class WelcomeText extends StatelessWidget {
   const WelcomeText({
@@ -11,14 +12,14 @@ class WelcomeText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(38),
+      padding: isLandscape(context) ? EdgeInsets.symmetric(vertical: 38, horizontal: 72) : EdgeInsets.all(38),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             "Winter\n" + "Vacation Trips",
             style: TextStyle(
-              fontSize: 36,
+              fontSize: isTab(context) ? 45 : 36,
               fontWeight: FontWeight.w700,
               color: kTextColor
             ),
@@ -29,7 +30,7 @@ class WelcomeText extends StatelessWidget {
           Text(
             'Enjoy your winter vacations with warmth and amazing sightseeing on the mountains. Enjoy the best experience with us!',
             style: TextStyle(
-              fontSize: 16,
+              fontSize: isTab(context) ? 24 : 16,
               color: kTextColor
             ),
           ),

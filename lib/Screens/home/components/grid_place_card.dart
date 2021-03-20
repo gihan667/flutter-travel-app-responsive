@@ -3,6 +3,7 @@ import 'package:smooth_star_rating/smooth_star_rating.dart';
 import 'package:travel_app/Models/Place.dart';
 import 'package:travel_app/Screens/home/components/liked_button.dart';
 import 'package:travel_app/constants.dart';
+import 'package:travel_app/responsive.dart';
 
 import '../../../util.dart';
 
@@ -34,7 +35,7 @@ class GridPlaceCard extends StatelessWidget {
                 child: Image.asset(
                   place.image,
                   width: double.infinity,
-                  height: 200,
+                  height: isTab(context) ? 400 : 200,
                   fit: BoxFit.cover,
                 ),
               )
@@ -45,7 +46,7 @@ class GridPlaceCard extends StatelessWidget {
               children: [
                 Container(
                   width: double.infinity,
-                  height: 70,
+                  height: isTab(context) ? 120 : 70,
                   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   decoration: cardInfoDecoration,
 
@@ -58,7 +59,7 @@ class GridPlaceCard extends StatelessWidget {
                             place.name,
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 12,
+                              fontSize: isTab(context) ? 24 : 12,
                               fontWeight: FontWeight.w700
                             ),
                           ),
@@ -74,7 +75,7 @@ class GridPlaceCard extends StatelessWidget {
                         onRated: (v) {},
                         starCount: 5,
                         rating: place.rating,
-                        size: 15,
+                        size: isTab(context) ? 35 : 15,
                         isReadOnly: true,
                         color: kRatingStarColor,
                         borderColor: kRatingStarColor,

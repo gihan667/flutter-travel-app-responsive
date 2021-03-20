@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:travel_app/constants.dart';
+import 'package:travel_app/responsive.dart';
 
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({
@@ -9,10 +10,13 @@ class BottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
     return Container(
       height: 75,
       width: double.infinity,
-      margin: EdgeInsets.all(15),
+      // We are adding Landscape too, for iphone landscape mode
+      margin: (isTab(context) || isLandscape(context)) ? EdgeInsets.symmetric(horizontal: size.width / 4, vertical: 15) : EdgeInsets.all(15),
       padding: EdgeInsets.symmetric(horizontal: 40),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),

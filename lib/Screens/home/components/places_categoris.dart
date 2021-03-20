@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app/constants.dart';
+import 'package:travel_app/responsive.dart';
 
 class PlacesCategories extends StatefulWidget {
   const PlacesCategories({
@@ -20,7 +21,7 @@ class _PlacesCategoriesState extends State<PlacesCategories> {
     return Padding(
       padding: EdgeInsets.all(30),
       child: SizedBox(
-        height: 25,
+        height: isTab(context) ? 35 : 25,
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: placesCategoris.length,
@@ -36,7 +37,7 @@ class _PlacesCategoriesState extends State<PlacesCategories> {
                 child: Text(
                   placesCategoris[index],
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: isTab(context) ? 24 : 16,
                     color: selectedIndex == index ? kPrimaryColor : kTextColor,
                     fontWeight: selectedIndex == index ? FontWeight.bold : FontWeight.normal
                   ),

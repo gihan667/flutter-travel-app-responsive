@@ -3,6 +3,7 @@ import 'package:smooth_star_rating/smooth_star_rating.dart';
 import 'package:travel_app/Models/Place.dart';
 import 'package:travel_app/Screens/home/components/liked_button.dart';
 import 'package:travel_app/constants.dart';
+import 'package:travel_app/responsive.dart';
 import 'package:travel_app/util.dart';
 
 class PlaceCard extends StatelessWidget {
@@ -30,7 +31,7 @@ class PlaceCard extends StatelessWidget {
         children: [
           Container(
             width: double.infinity,
-            height: 80,
+            height: isTab(context) ? 120 : 80,
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
             decoration: cardInfoDecoration,
 
@@ -43,7 +44,7 @@ class PlaceCard extends StatelessWidget {
                       place.name,
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 20,
+                        fontSize: isTab(context) ? 30 : 20,
                         fontWeight: FontWeight.w700
                       ),
                     ),
@@ -59,7 +60,7 @@ class PlaceCard extends StatelessWidget {
                   onRated: (v) {},
                   starCount: 5,
                   rating: place.rating,
-                  size: 20,
+                  size: isTab(context) ? 35 : 20,
                   isReadOnly: true,
                   color: kRatingStarColor,
                   borderColor: kRatingStarColor,

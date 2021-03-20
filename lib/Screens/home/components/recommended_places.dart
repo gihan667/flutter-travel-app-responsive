@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app/Models/Place.dart';
+import 'package:travel_app/Screens/details/details.dart';
 import 'package:travel_app/Screens/home/components/grid_place_card.dart';
 
 import '../../../responsive.dart';
@@ -16,7 +17,7 @@ class RecommendedPlaces extends StatelessWidget {
         crossAxisCount: isLandscape(context) ? 3 : 2,
         shrinkWrap: true,
         physics: NeverScrollableScrollPhysics(),
-        padding: EdgeInsets.all(20),
+        padding: isLandscape(context) ? EdgeInsets.symmetric(vertical: 20, horizontal: 50) : EdgeInsets.all(20),
         mainAxisSpacing: 20,
         crossAxisSpacing: 20,
         childAspectRatio: 1.2,
@@ -25,7 +26,9 @@ class RecommendedPlaces extends StatelessWidget {
           (index) {
             return GridPlaceCard(
               place: demoPlaces[index],
-              tapEvent: () {},
+              tapEvent: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsScreen(place: demoPlaces[index])));
+              },
             );
           }
         ),

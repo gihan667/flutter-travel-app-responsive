@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travel_app/responsive.dart';
 
 class TopBanner extends StatelessWidget {
   const TopBanner({
@@ -10,7 +11,7 @@ class TopBanner extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     
     return Container(
-      height: size.height * 0.5,
+      height: size.height * (isTab(context) ? 0.6:0.5),
       child: ClipRRect(
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(30),
@@ -19,6 +20,7 @@ class TopBanner extends StatelessWidget {
         child: Image.asset(
           'assets/images/welcome.jpg',
           height: size.height * 0.5,
+          width: size.width,
           fit: BoxFit.cover,
         ),
       ),

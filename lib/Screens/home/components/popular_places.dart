@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:travel_app/Models/Place.dart';
 import 'package:travel_app/Screens/home/components/place_card.dart';
 import 'package:travel_app/constants.dart';
+import 'package:travel_app/responsive.dart';
 
 class PopularPlaces extends StatefulWidget {
   const PopularPlaces({
@@ -19,7 +20,7 @@ class _PopularPlacesState extends State<PopularPlaces> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 260,
+      height: isTab(context) ? 450 : 260,
       child: Column(
         children: [
           Expanded(
@@ -31,7 +32,7 @@ class _PopularPlacesState extends State<PopularPlaces> {
                 });
               },
               controller: PageController(
-                viewportFraction: 0.8,
+                viewportFraction: isTab(context) ? 0.9 : 0.8,
                 initialPage: 0
               ),
               itemCount: demoPlaces.length,
